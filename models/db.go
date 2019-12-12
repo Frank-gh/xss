@@ -17,6 +17,15 @@ type XssAd struct {
 	Name         string `json:"name"`
 }
 
+type XssChannel struct {
+	IconUrl   string `json:"icon_url"`
+	Id        int    `json:"id"`
+	Name      string `json:"name"`
+	SortOrder int    `json:"sort_order"`
+	Url       string `json:"url"`
+}
+
+
 func init() {
 	// 开启debug日志
 	orm.Debug = true
@@ -28,6 +37,7 @@ func init() {
 
 	// register model
 	orm.RegisterModel(new(XssAd))
+	orm.RegisterModel(new(XssChannel))
 	// 自动创建表 参数二为是否开启创建表   参数三是否更新表
 	orm.RunSyncdb("default", true, true)
 }
