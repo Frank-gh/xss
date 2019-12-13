@@ -38,6 +38,7 @@ func init() {
 	// register model
 	orm.RegisterModel(new(XssAd))
 	orm.RegisterModel(new(XssChannel))
+	
 	// 自动创建表 参数二为是否开启创建表   参数三是否更新表
 	// orm.RunSyncdb("default", true, true)
 }
