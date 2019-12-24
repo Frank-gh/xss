@@ -24,23 +24,44 @@ type XssChannel struct {
 	SortOrder int    `json:"sort_order"`
 	Url       string `json:"url"`
 }
-
-type XssCategory struct {
-	Id           int    `json:"id"`
-	BannerUrl    string `json:"banner_url"`
-	FrontDesc    string `json:"front_desc"`
-	FrontName    string `json:"front_name"`
-	IconUrl      string `json:"icon_url"`
-	ImgUrl       string `json:"img_url"`
-	IsShow       int    `json:"is_show"`
-	Keywords     string `json:"keywords"`
-	Level        string `json:"level"`
-	Name         string `json:"name"`
-	ParentId     int    `json:"parent_id"`
-	ShowIndex    int    `json:"show_index"`
-	SortOrder    int    `json:"sort_order"`
-	Type         int    `json:"type"`
-	WapBannerUrl string `json:"wap_banner_url"`
+type XssGoods struct {
+	Id                int    `json:"id"`
+	CategoryId        int    `json:"category_id"`
+	AddTime           int    `json:"add_time"`
+	AppExclusivePrice string `json:"app_exclusive_price"`
+	AttributeCategory int    `json:"attribute_category"`
+	BrandId           int    `json:"brand_id"`
+	CounterPrice      string `json:"counter_price"`
+	ExtraPrice        string `json:"extra_price"`
+	GoodsBrief        string `json:"goods_brief"`
+	GoodsDesc         string `json:"goods_desc"`
+	GoodsNumber       int    `json:"goods_number"`
+	GoodsSn           string `json:"goods_sn"`
+	GoodsUnit         string `json:"goods_unit"`
+	IsAppExclusive    int    `json:"is_app_exclusive"`
+	IsDelete          bool   `json:"is_delete"`
+	IsHot             int    `json:"is_hot"`
+	IsLimited         int    `json:"is_limited"`
+	IsNew             int    `json:"is_new"`
+	IsOnSale          int    `json:"is_on_sale"`
+	Keywords          string `json:"keywords"`
+	ListPicUrl        string `json:"list_pic_url"`
+	Name              string `json:"name"`
+	PrimaryPicUrl     string `json:"primary_pic_url"`
+	PrimaryProductId  int    `json:"primary_product_id"`
+	PromotionDesc     string `json:"promotion_desc"`
+	PromotionTag      string `json:"promotion_tag"`
+	RetailPrice       string `json:"retail_price"`
+	SellVolume        int    `json:"sell_volume"`
+	SortOrder         int    `json:"sort_order"`
+	UnitPrice         string `json:"unit_price"`
+}
+type XssSearchHistory struct {
+	AddTime int64  `json:"add_time"`
+	From    string `json:"from"`
+	Id      int    `json:"id"`
+	Keyword string `json:"keyword"`
+	UserId  string `json:"user_id"`
 }
 func init() {
 	// 开启debug日志
@@ -54,7 +75,7 @@ func init() {
 	// register model
 	orm.RegisterModel(new(XssAd))
 	orm.RegisterModel(new(XssChannel))
-	orm.RegisterModel(new(XssCategory))
+	orm.RegisterModel(new(XssGoods))
 	
 	// 自动创建表 参数二为是否开启创建表   参数三是否更新表
 	// orm.RunSyncdb("default", true, true)
