@@ -25,7 +25,23 @@ type XssChannel struct {
 	Url       string `json:"url"`
 }
 
-
+type XssCategory struct {
+	Id           int    `json:"id"`
+	BannerUrl    string `json:"banner_url"`
+	FrontDesc    string `json:"front_desc"`
+	FrontName    string `json:"front_name"`
+	IconUrl      string `json:"icon_url"`
+	ImgUrl       string `json:"img_url"`
+	IsShow       int    `json:"is_show"`
+	Keywords     string `json:"keywords"`
+	Level        string `json:"level"`
+	Name         string `json:"name"`
+	ParentId     int    `json:"parent_id"`
+	ShowIndex    int    `json:"show_index"`
+	SortOrder    int    `json:"sort_order"`
+	Type         int    `json:"type"`
+	WapBannerUrl string `json:"wap_banner_url"`
+}
 func init() {
 	// 开启debug日志
 	orm.Debug = true
@@ -38,6 +54,7 @@ func init() {
 	// register model
 	orm.RegisterModel(new(XssAd))
 	orm.RegisterModel(new(XssChannel))
+	orm.RegisterModel(new(XssCategory))
 	
 	// 自动创建表 参数二为是否开启创建表   参数三是否更新表
 	// orm.RunSyncdb("default", true, true)
