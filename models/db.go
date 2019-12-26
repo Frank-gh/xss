@@ -63,6 +63,20 @@ type XssSearchHistory struct {
 	Keyword string `json:"keyword"`
 	UserId  string `json:"user_id"`
 }
+
+type XssAddress struct {
+	Address    string `json:"address"`
+	CityId     int    `json:"city_id"`
+	CountryId  int    `json:"country_id"`
+	DistrictId int    `json:"district_id"`
+	Id         int    `json:"id"`
+	IsDefault  int    `json:"is_default"`
+	Mobile     string `json:"mobile"`
+	Name       string `json:"name"`
+	ProvinceId int    `json:"province_id"`
+	UserId     int    `json:"user_id"`
+}
+
 func init() {
 	// 开启debug日志
 	orm.Debug = true
@@ -76,6 +90,7 @@ func init() {
 	orm.RegisterModel(new(XssAd))
 	orm.RegisterModel(new(XssChannel))
 	orm.RegisterModel(new(XssGoods))
+	orm.RegisterModel(new(XssAddress))
 	
 	// 自动创建表 参数二为是否开启创建表   参数三是否更新表
 	// orm.RunSyncdb("default", true, true)
