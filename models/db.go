@@ -77,6 +77,15 @@ type XssAddress struct {
 	UserId     int    `json:"user_id"`
 }
 
+type XssRegion struct {
+	AgencyId int    `json:"agency_id"`
+	Id       int    `json:"id"`
+	Name     string `json:"name"`
+	ParentId int    `json:"parent_id"`
+	Type     int    `json:"type"`
+}
+
+
 func init() {
 	// 开启debug日志
 	orm.Debug = true
@@ -87,10 +96,12 @@ func init() {
 	orm.RegisterDataBase("default", "mysql", "root:root@tcp(127.0.0.1:3306)/xss?charset=utf8mb4", 30)
 
 	// register model
+
 	orm.RegisterModel(new(XssAd))
 	orm.RegisterModel(new(XssChannel))
 	orm.RegisterModel(new(XssGoods))
 	orm.RegisterModel(new(XssAddress))
+	orm.RegisterModel(new(XssRegion))
 	
 	// 自动创建表 参数二为是否开启创建表   参数三是否更新表
 	// orm.RunSyncdb("default", true, true)
