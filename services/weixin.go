@@ -2,6 +2,7 @@ package services
 
 import (
 	"crypto/sha1"
+	"fmt"
 	"encoding/base64"
 	"encoding/hex"
 	"encoding/json"
@@ -76,6 +77,7 @@ func Login(code string, fullUserInfo ResUserInfo) *WXUserInfo {
 		return nil
 	}
 	userinfo := DecryptUserInfoData(res.SessionKey, fullUserInfo.EncryptedData, fullUserInfo.IV)
+	fmt.Println(userinfo)
 
 	return userinfo
 

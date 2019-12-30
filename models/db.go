@@ -85,6 +85,22 @@ type XssRegion struct {
 	Type     int    `json:"type"`
 }
 
+type XssUser struct {
+	Avatar        string `json:"avatar"`
+	Birthday      int    `json:"birthday"`
+	Gender        int    `json:"gender"`
+	Id            int    `json:"id"`
+	LastLoginIp   string `json:"last_login_ip"`
+	LastLoginTime int64  `json:"last_login_time"`
+	Mobile        string `json:"mobile"`
+	Nickname      string `json:"nickname"`
+	Password      string `json:"password"`
+	RegisterIp    string `json:"register_ip"`
+	RegisterTime  int64  `json:"register_time"`
+	UserLevelId   int    `json:"user_level_id"`
+	Username      string `json:"username" orm:"unique"`
+	WeixinOpenid  string `json:"weixin_openid"`
+}
 
 func init() {
 	// 开启debug日志
@@ -102,6 +118,7 @@ func init() {
 	orm.RegisterModel(new(XssGoods))
 	orm.RegisterModel(new(XssAddress))
 	orm.RegisterModel(new(XssRegion))
+	orm.RegisterModel(new(XssUser))
 	
 	// 自动创建表 参数二为是否开启创建表   参数三是否更新表
 	// orm.RunSyncdb("default", true, true)
